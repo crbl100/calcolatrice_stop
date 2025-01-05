@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcolatrice STOP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .calculator {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+    }
+    .title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .display {
+      font-size: 2em;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .reset {
+      grid-column: span 5;
+      background: #dc3545;
+    }
+    .reset:hover {
+      background: #a71d2a;
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+    .info a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="title">Calcolatrice STOP</div>
+    <div class="display" id="total">0</div>
+    <div class="buttons">
+      <button onclick="addPoints(21)">7</button>
+      <button onclick="addPoints(18)">6</button>
+      <button onclick="addPoints(16)">Asso</button>
+      <button onclick="addPoints(15)">5</button>
+      <button onclick="addPoints(14)">4</button>
+      <button onclick="addPoints(13)">3</button>
+      <button onclick="addPoints(12)">2</button>
+      <button onclick="addPoints(10)">Fante</button>
+      <button onclick="addPoints(10)">Cavallo</button>
+      <button onclick="addPoints(10)">Re</button>
+      <button class="reset" onclick="resetPoints()">Reset</button>
+    </div>
+  </div>
+  <div class="info">
+    Per maggiori informazioni sul gioco, visita <a href="https://it.wikipedia.org/wiki/Stoppa_(gioco_di_carte)" target="_blank">Wikipedia</a>.
+  </div>
+
+  <script>
+    let total = 0;
+
+    function addPoints(points) {
+      total += points;
+      document.getElementById('total').textContent = total;
+    }
+
+    function resetPoints() {
+      total = 0;
+      document.getElementById('total').textContent = total;
+    }
+  </script>
+</body>
+</html>
